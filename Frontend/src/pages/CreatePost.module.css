@@ -1,0 +1,312 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 20px;
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(circle at top left, #d8ffe7, transparent 30%),
+    radial-gradient(circle at bottom right, #b7f8d6, transparent 30%),
+    linear-gradient(135deg, #f3fff7, #e6fff0, #d9ffea);
+
+  font-family: "Poppins", sans-serif;
+
+  overflow: hidden;
+}
+
+/* ================= HEADING ================= */
+
+.heading {
+  font-size: 34px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  margin-bottom: 35px;
+
+  position: relative;
+
+  background: linear-gradient(
+    90deg,
+    #2d6a4f,
+    #40916c,
+    #52b788
+  );
+
+  background-size: 200%;
+
+  -webkit-text-fill-color: transparent;
+
+  animation: shine 4s linear infinite;
+
+  text-shadow:
+    0 0 10px rgba(82, 183, 136, 0.2),
+    0 0 20px rgba(64, 145, 108, 0.15);
+
+  transition: 0.3s ease;
+}
+
+.heading:hover {
+  transform: scale(1.03);
+}
+
+/* Underline */
+
+.heading::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -10px;
+
+  transform: translateX(-50%);
+
+  width: 90px;
+  height: 4px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    to right,
+    #52b788,
+    #40916c
+  );
+
+  box-shadow:
+    0 0 12px rgba(82, 183, 136, 0.3);
+}
+
+/* ================= FORM ================= */
+
+.text {
+  width: 100%;
+  max-width: 500px;
+
+  padding: 35px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.45);
+
+  backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  box-shadow:
+    0 10px 35px rgba(64, 145, 108, 0.12),
+    inset 0 0 12px rgba(255, 255, 255, 0.4);
+
+  transition: 0.4s ease;
+}
+
+.text:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 18px 40px rgba(64, 145, 108, 0.18),
+    inset 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* ================= FILE INPUT ================= */
+
+.image {
+  width: 100%;
+
+  padding: 14px;
+
+  border-radius: 16px;
+
+  border: 2px dashed #52b788;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  color: #2d6a4f;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  box-sizing: border-box;
+}
+
+.image:hover {
+  background: #f2fff7;
+
+  border-color: #40916c;
+
+  transform: scale(1.01);
+}
+
+/* ================= INPUT ================= */
+
+.caption {
+  width: 100%;
+
+  padding: 16px 18px;
+
+  border-radius: 16px;
+
+  border: 2px solid transparent;
+
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  color: #1b4332;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  transition: all 0.3s ease;
+
+  box-sizing: border-box;
+}
+
+.caption::placeholder {
+  color: #74a892;
+  font-style: italic;
+}
+
+.caption:focus {
+  border: 2px solid #52b788;
+
+  transform: scale(1.01);
+
+  box-shadow:
+    0 0 12px rgba(82, 183, 136, 0.25),
+    0 0 24px rgba(64, 145, 108, 0.12);
+}
+
+/* ================= BUTTON ================= */
+
+.button {
+  width: fit-content;
+
+  padding: 14px 34px;
+
+  margin: auto;
+
+  border: none;
+  outline: none;
+
+  border-radius: 50px;
+
+  background: linear-gradient(
+    135deg,
+    #40916c,
+    #52b788,
+    #95d5b2
+  );
+
+  background-size: 250%;
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.35s ease;
+
+  box-shadow:
+    0 8px 20px rgba(64, 145, 108, 0.22),
+    0 0 18px rgba(82, 183, 136, 0.12);
+
+  animation: buttonFlow 5s linear infinite;
+}
+
+.button:hover {
+  transform: translateY(-4px) scale(1.04);
+
+  box-shadow:
+    0 16px 30px rgba(64, 145, 108, 0.28),
+    0 0 24px rgba(82, 183, 136, 0.2);
+}
+
+.button:active {
+  transform: scale(0.96);
+}
+
+/* Shine Effect */
+
+.button::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.35);
+
+  transform: skewX(-30deg);
+
+  transition: 0.7s;
+}
+
+.button:hover::before {
+  left: 130%;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes shine {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 200%;
+  }
+}
+
+@keyframes buttonFlow {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 250%;
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 600px) {
+  .heading {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .text {
+    padding: 24px;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
