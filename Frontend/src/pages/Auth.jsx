@@ -33,11 +33,11 @@ const Auth = () => {
   useEffect(() => {
     resetForm();
   }, []);
-useEffect(() => {
-  if (location.state?.clearForm) {
-    resetForm();
-  }
-}, [location]); 
+  useEffect(() => {
+    if (location.state?.clearForm) {
+      resetForm();
+    }
+  }, [location]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -69,13 +69,14 @@ useEffect(() => {
           };
 
       const response = await API.post(endpoint, payload);
-
-      login(response.data.token, response.data.user);
-
+      if (isLogin) {
+        login(response.data.token, response.data.user);
+        navigate("/feed");
+      } else {
+        alert("Signup successfully please login");
+        setIsLogin(true);
+      }
       resetForm();
-
-      navigate("/feed");
-
     } catch (error) {
       alert(error.response?.data?.message || "Authentication Failed");
     } finally {
@@ -89,11 +90,7 @@ useEffect(() => {
         <div className={styles.leftPanel}>
           <div className={styles.logoBadge}>CG</div>
 
-          <h1>
-            {isLogin
-              ? "Welcome Back"
-              : "Welcome to CloudGallery"}
-          </h1>
+          <h1>{isLogin ? "Welcome Back" : "Welcome to CloudGallery"}</h1>
 
           <p>
             {isLogin
@@ -107,13 +104,10 @@ useEffect(() => {
             <h2>{isLogin ? "Login" : "Sign Up"}</h2>
 
             <p className={styles.subtitle}>
-              {isLogin
-                ? "Enter your credentials"
-                : "Create your new account"}
+              {isLogin ? "Enter your credentials" : "Create your new account"}
             </p>
 
             <form onSubmit={handleSubmit} className={styles.form}>
-
               {!isLogin && (
                 <div className={styles.field}>
                   <label>Name</label>
@@ -163,16 +157,13 @@ useEffect(() => {
                 {loading
                   ? "Please wait..."
                   : isLogin
-                  ? "Login"
-                  : "Create Account"}
+                    ? "Login"
+                    : "Create Account"}
               </button>
-
             </form>
 
             <p className={styles.switchText}>
-              {isLogin
-                ? "Don't have an account?"
-                : "Already have an account?"}
+              {isLogin ? "Don't have an account?" : "Already have an account?"}
 
               <button
                 className={styles.switchButton}
@@ -186,7 +177,6 @@ useEffect(() => {
                 {isLogin ? " Sign Up" : " Login"}
               </button>
             </p>
-
           </div>
         </div>
       </div>
