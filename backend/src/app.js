@@ -21,9 +21,6 @@ const upload = multer({
   storage: multer.memoryStorage(),
 });
 
-/* ===========================
-   SIGNUP
-=========================== */
 app.post("/signup", async (req, res) => {
   try {
    
@@ -80,9 +77,6 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-/* ===========================
-   LOGIN
-=========================== */
 app.post("/login", async (req, res) => {
   try {
     
@@ -141,9 +135,6 @@ app.post("/login", async (req, res) => {
   }
 });
 
-/* ===========================
-   PROFILE
-=========================== */
 app.get("/profile", authMiddleware, async (req, res) => {
   try {
     const user = await userModel
@@ -158,9 +149,7 @@ app.get("/profile", authMiddleware, async (req, res) => {
   }
 });
 
-/* ===========================
-   CREATE POST
-=========================== */
+
 app.post(
   "/createpost",
   authMiddleware,
@@ -193,9 +182,7 @@ app.post(
   }
 );
 
-/* ===========================
-   PUBLIC GALLERY
-=========================== */
+
 app.get("/getpost", authMiddleware, async (req, res) => {
   try {
     const posts = await postModel
@@ -212,9 +199,6 @@ app.get("/getpost", authMiddleware, async (req, res) => {
   }
 });
 
-/* ===========================
-   MY POSTS
-=========================== */
 app.get("/myposts", authMiddleware, async (req, res) => {
   try {
     const posts = await postModel
@@ -231,9 +215,7 @@ app.get("/myposts", authMiddleware, async (req, res) => {
   }
 });
 
-/* ===========================
-   DELETE POST
-=========================== */
+
 app.delete("/post/:id", authMiddleware, async (req, res) => {
   try {
     const post = await postModel.findById(req.params.id);
@@ -262,9 +244,6 @@ app.delete("/post/:id", authMiddleware, async (req, res) => {
   }
 });
 
-/* ===========================
-   UPDATE POST
-=========================== */
 app.put("/post/:id", authMiddleware, async (req, res) => {
   try {
     const post = await postModel.findById(req.params.id);
@@ -296,9 +275,6 @@ app.put("/post/:id", authMiddleware, async (req, res) => {
   }
 });
 
-/* ===========================
-   ERROR HANDLER
-=========================== */
 app.use((err, req, res, next) => {
   console.error(err);
 

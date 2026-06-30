@@ -4,7 +4,6 @@ const API = axios.create({
   baseURL: "https://cloudgallery-v1-backend.onrender.com",
 });
 
-// Automatically attach JWT token
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
 
