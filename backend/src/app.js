@@ -21,9 +21,6 @@ console.log("Password Schema:", userModel.schema.path("password").options);
 const authMiddleware = require("./middleware/auth.middleware");
 const connectDB = require("./db/db");
 
-const authMiddleware = require("./middleware/auth.middleware");
-const connectDB = require("./db/db");
-
 const app = express();
 
 app.use(express.json());
