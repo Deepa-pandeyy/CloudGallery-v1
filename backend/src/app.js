@@ -7,15 +7,6 @@ const uploadFile = require("./service/storage.service");
 const postModel = require("./model/postModel");
 const userModel = require("./model/userModel");
 
-const express = require("express");
-const multer = require("multer");
-const jwt = require("jsonwebtoken");
-const cors = require("cors");
-
-const uploadFile = require("./service/storage.service");
-const postModel = require("./model/postModel");
-const userModel = require("./model/userModel");
-
 console.log("Password Schema:", userModel.schema.path("password").options);
 
 const authMiddleware = require("./middleware/auth.middleware");
